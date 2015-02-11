@@ -21,7 +21,7 @@ set showmatch
 set hlsearch
 set incsearch
  
-colorscheme xoria256
+colorscheme solarized
 set guifont=menlo\ for\ powerline:h16
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
