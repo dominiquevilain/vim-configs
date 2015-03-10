@@ -48,6 +48,10 @@ set visualbell           " don't beep
 set noerrorbells         " don't beep
 set autowrite  "Save on buffer switch
 set mouse=a
+
+" Remove the binding middle mouse / paste
+:map <MiddleMouse> <Nop>
+:imap <MiddleMouse> <Nop>
  
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
@@ -63,6 +67,13 @@ nnoremap k gk
  
 "Easy escaping to normal model
 imap jj <esc>
+
+" Use ,, to repeat last command
+nmap ,, :!!<cr>
+
+" Use cat to append content @ the end of the file
+nmap ,a :!cat >> %<cr>
+nmap ,! :!cat > %<cr>
  
 "Auto change directory to match current file ,cd
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
@@ -93,7 +104,7 @@ nmap :sp :rightbelow sp<cr>
 " Quickly go forward or backward to buffer
 nmap :bp :BufSurfBack<cr>
 nmap :bn :BufSurfForward<cr>
- 
+
 highlight Search cterm=underline
  
 " Swap files out of the project root
@@ -121,14 +132,6 @@ command! H let @/=""
 " Abbreviations
 abbrev pft PHPUnit_Framework_TestCase
  
-abbrev gm !php artisan generate:model
-abbrev gc !php artisan generate:controller
-abbrev gmig !php artisan generate:migration
-abbrev gart !php artisan
-abbrev gamr !php artisan migrate:rollback
-abbrev garm !php artisan migrate
-abbrev garms !php artisan migrate --seed
-abbrev ggr !php artisan migrate:rollback && php artisan migrate --seed
 " Auto-remove trailing spaces
 autocmd BufWritePre *.php :%s/\s\+$//e
  
